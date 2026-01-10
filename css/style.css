@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    font-weight: 600;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+}
+
+/* SLIDER */
+.slider {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: opacity 2.5s ease-in-out;
+    will-change: opacity;
+}
+
+
+
+/* DARK OVERLAY */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+}
+
+/* CONTENT */
+.content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LEFT */
+.left .logo {
+    font-size: 100px;
+    font-weight: 700;
+    text-transform: lowercase;
+}
+
+.subtitle {
+    letter-spacing: 3px;
+    margin: 10px 0 40px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* RIGHT */
+.right {
+    text-align: center;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .right {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .left .logo {
+        font-size: 70px;
+    }
+}
+
+
+
+
+/* SEO ONLY (hidden but readable by Google) */
+.seo-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+/* LOGO IMAGE */
+.logo {
+    max-width: 240px;
+    margin-bottom: 10px;
+}
+
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 26px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #000;
+}
+
+
+.right {
+    text-align: center;
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1.5px;
+    max-width: 420px;
+}
+.til {
+    width: 90px;
+    opacity: 0.8;
+}
+
+.til.top {
+    margin-bottom: 20px;
+}
+
+.til.bottom {
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .right {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+
+        .left {
+        text-align: center;
+        margin-top: 40px;
+    }
+}
