@@ -1,12 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const images = [
-        'img/bg1.jpg',
-        'img/bg2.jpg',
-        'img/bg3.jpg',
-        'img/bg4.jpg',
-        'img/bg5.jpg'
-    ];
+const images = [
+    'img/kayak-ferragudo1.jpg',
+    'img/kayak-ferragudo2.jpg',
+    'img/kayak-ferragudo3.jpg',
+    'img/kayak-ferragudo4.jpg',
+    'img/kayak-ferragudo5.jpg',
+    'img/kayak-ferragudo6.jpg',
+    'img/kayak-ferragudo7.jpg',
+    'img/kayak-ferragudo8.jpg',
+    'img/kayak-ferragudo9.jpg'
+];
+
 
     let current = 0;
     const slider = document.querySelector('.slider');
