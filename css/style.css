@@ -173,3 +173,29 @@ body {
         border-radius: 3px;
     }
 }
+
+
+
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 3.5s ease-in-out;
+    will-change: opacity;
+}
+
+.slider.active {
+    opacity: 1;
+}
+
+
+
+@media (min-width: 769px) {
+    .slider {
+        background-position: center 65%;
+    }
+}
+
