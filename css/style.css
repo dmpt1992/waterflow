@@ -210,4 +210,11 @@ body {
         margin-top: 40px;
             font-size: 12px;
     }
+
+
+        /* LOGO IMAGE */
+.logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
 }
