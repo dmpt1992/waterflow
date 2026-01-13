@@ -97,11 +97,21 @@ body {
     .right {
         margin-top: 40px;
         text-align: center;
+        font-size: 12px;
     }
 
     .left .logo {
-        font-size: 70px;
+        font-size: 12px;
     }
+
+
+
+    /* LOGO IMAGE */
+.logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
 }
 
 
