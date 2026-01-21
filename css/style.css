@@ -164,7 +164,7 @@ body {
     }
 
     .logo {
-        max-width: 100px;
+        max-width: 160px;
     }
 
     .btn {
@@ -183,7 +183,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 3.5s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: opacity;
 }
 
