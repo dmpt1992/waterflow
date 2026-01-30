@@ -107,7 +107,7 @@ body{
   min-height:100vh;
   max-width:1240px;
   margin:0 auto;
-  padding:110px 72px 72px; /* extra top space because logo moved to corner */
+  padding:110px 20px 20px; /* extra top space because logo moved to corner */
   display:flex;
   gap:60px;
   align-items:center;
@@ -295,7 +295,7 @@ body{
   margin-right:auto; /* centers the image */
 }
 
-.til.top{margin-bottom:8px;}
+.til.top{margin-bottom:18px;}
 .til.bottom{margin-top:14px;}
 
 .price-grid{
