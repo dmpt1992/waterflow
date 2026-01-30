@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.querySelector('.slider');
+  if (!slider) return;
 
-const images = [
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const images = [
     'img/kayak-ferragudo1.jpg',
     'img/kayak-ferragudo2.jpg',
     'img/kayak-ferragudo3.jpg',
@@ -9,28 +13,26 @@ const images = [
     'img/kayak-ferragudo6.jpg',
     'img/kayak-ferragudo7.jpg',
     'img/kayak-ferragudo8.jpg',
-    'img/kayak-ferragudo9.jpg'
-];
+    'img/kayak-ferragudo9.jpg',
+    'img/kayak-ferragudo10.jpg'
+  ];
 
+  let current = 0;
 
-    let current = 0;
-    const slider = document.querySelector('.slider');
+  // first image
+  slider.style.backgroundImage = `url("${images[current]}")`;
+  slider.style.opacity = 1;
 
-    if (!slider) return;
+  if (prefersReducedMotion) return;
 
-    // imagem inicial
-    slider.style.backgroundImage = `url("${images[current]}")`;
-    slider.style.opacity = 1;
+  setInterval(() => {
+    slider.style.opacity = 0;
 
-    setInterval(() => {
-        slider.style.opacity = 0;
+    setTimeout(() => {
+      current = (current + 1) % images.length;
+      slider.style.backgroundImage = `url("${images[current]}")`;
+      slider.style.opacity = 1;
+    }, 1100);
 
-        setTimeout(() => {
-            current = (current + 1) % images.length;
-            slider.style.backgroundImage = `url("${images[current]}")`;
-            slider.style.opacity = 1;
-        }, 1300);
-
-    }, 7000);
-
+  }, 6500);
 });
