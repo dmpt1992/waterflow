@@ -617,11 +617,7 @@ h2{
   }
 
   .hero-sub{
-    font-size: 12px !important;
-    line-height: 1.65 !important;
-    max-width: 100% !important;
-    opacity: .95;
-     margin-bottom: 55px;
+display: none!
   }
 
   /* CTA: 2x2 grid (fica muito mais clean) */
@@ -827,3 +823,45 @@ h2{
   }
 }
 
+/* =========================================================
+   MOBILE CTA — 2x2 GRID (RENTALS | WHATSAPP)
+   ========================================================= */
+@media (max-width: 520px){
+
+  .cta-group{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* Todos os botões ocupam a célula inteira */
+  .cta-group .btn{
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Linha 1 */
+  .cta-group .btn-primary{
+    grid-column: 1 / 2; /* RENTALS */
+  }
+
+  .cta-group .btn-outline{
+    grid-column: 2 / 3; /* WHATSAPP */
+  }
+
+  /* Linha 2 */
+  .cta-group .btn-ghost:nth-of-type(1){
+    grid-column: 1 / 2; /* CAVES ROUTE */
+  }
+
+  .cta-group .btn-ghost:nth-of-type(2){
+    grid-column: 2 / 3; /* FERRAGUDO ROUTE */
+  }
+
+  /* Melhor toque para mobile */
+  .btn{
+    padding: 14px 12px;
+    font-size: 11px;
+  }
+}
