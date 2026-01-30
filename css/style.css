@@ -597,7 +597,7 @@ h2{
   .kicker{
     font-size: 11px;
     letter-spacing: 2.4px;
-    margin-bottom: 12px !important;
+    margin-bottom: 35px !important;
   }
 
   .hero-title{
@@ -611,6 +611,7 @@ h2{
     line-height: 1.65 !important;
     max-width: 100% !important;
     opacity: .95;
+     margin-bottom: 55px;
   }
 
   /* CTA: 2x2 grid (fica muito mais clean) */
@@ -761,5 +762,30 @@ h2{
 
   .cta-group .btn-outline{
     padding: 15px 12px !important;
+  }
+}
+/* =========================================================
+   MOBILE — SCROLL INDICATOR CENTERED
+   ========================================================= */
+@media (max-width: 760px){
+
+  .scroll-cue--center{
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 16px !important;      /* mais espaço do conteúdo */
+    transform: translateX(-50%) !important;
+    z-index: 4;
+    opacity: .85;
+  }
+
+  /* um bocadinho mais pequeno em mobile */
+  .scroll-cue__mouse{
+    width: 22px;
+    height: 34px;
+  }
+
+  .scroll-cue__arrow{
+    width: 10px;
+    height: 10px;
   }
 }
