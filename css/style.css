@@ -453,3 +453,18 @@ h2{
   .btn{padding:12px 16px;font-size:11px;border-radius:9px;}
   .features{grid-template-columns:1fr;}
 }
+
+
+
+/* Ghost button works on light backgrounds too */
+.btn.btn-ghost{
+  background: rgba(15,47,54,0.10);
+  border: 1px solid rgba(15,47,54,0.18);
+  color: var(--flow-blue);
+}
+.btn.btn-ghost:hover{
+  background: var(--flow-blue);
+  color: #fff;
+  border-color: var(--flow-blue);
+}
+
