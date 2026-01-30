@@ -491,3 +491,45 @@ h2{
   .cta-group{gap:10px;}
   .features{grid-template-columns:1fr;}
 }
+
+
+
+/* =========================================================
+   FINAL TWEAKS
+   ========================================================= */
+
+/* Brand: not glued to edges */
+.brand{
+  top: 28px;
+  left: 28px;
+}
+
+/* Optional: on very large screens, give it a touch more breathing room */
+@media (min-width: 1400px){
+  .brand{ top: 34px; left: 34px; }
+}
+
+/* Scroll cue: centered and lower */
+.scroll-cue--center{
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  transform: translateX(-50%);
+  z-index: 3;
+  margin-top: 0; /* override previous margin */
+}
+
+/* keep it visible above the hero fade */
+@media (max-height: 760px){
+  .scroll-cue--center{ bottom: 18px; }
+}
+
+@media (max-width: 520px){
+  .brand{
+    top: 18px;
+    left: 18px;
+  }
+  .scroll-cue--center{
+    bottom: 18px;
+  }
+}
