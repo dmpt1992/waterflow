@@ -789,3 +789,31 @@ h2{
     height: 10px;
   }
 }
+
+
+/* =========================================================
+   MOBILE — FIX SCROLL OVERLAP WITH PRICES PANEL
+   ========================================================= */
+@media (max-width: 760px){
+
+  /* cria zona livre no fundo do hero para o scroll-cue */
+  .hero{
+    padding-bottom: 74px; /* espaço reservado para o indicador */
+  }
+
+  /* baixa o indicador para a “zona livre” */
+  .scroll-cue--center{
+    position:absolute !important;
+    left:50% !important;
+    bottom: 22px !important;
+    transform: translateX(-50%) !important;
+    z-index: 3 !important;
+  }
+
+  /* garante que o painel fica acima do indicador */
+  .right{
+    position: relative;
+    z-index: 4;
+  }
+}
+
