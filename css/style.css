@@ -492,80 +492,94 @@ h2{
   .features{grid-template-columns:1fr;}
 }
 
-
-
 /* =========================================================
-   FINAL TWEAKS
+   FINAL — BRAND, SCROLL & ROUTE BUTTONS (single source of truth)
    ========================================================= */
 
-/* Brand: not glued to edges */
+/* Brand badge */
 .brand{
-  top: 28px;
-  left: 28px;
-}
-
-/* Optional: on very large screens, give it a touch more breathing room */
-@media (min-width: 1400px){
-  .brand{ top: 34px; left: 34px; }
-}
-
-/* Scroll cue: centered and lower */
-.scroll-cue--center{
-  position: absolute;
-  left: 50%;
-  bottom: 34px;
-  transform: translateX(-50%);
-  z-index: 3;
-  margin-top: 0; /* override previous margin */
-}
-
-/* keep it visible above the hero fade */
-@media (max-height: 760px){
-  .scroll-cue--center{ bottom: 18px; }
-}
-
-@media (max-width: 520px){
-  .brand{
-    top: 18px;
-    left: 18px;
-  }
-  .scroll-cue--center{
-    bottom: 18px;
-  }
-}
-
-
-/* =========================================================
-   BRAND BADGE (fix logo looking wrong)
-   ========================================================= */
-
-.brand{
-  top: 24px;
-  left: 24px;
+  position:absolute;
+  top:24px;
+  left:24px;
+  z-index:3;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
 }
 
 .brand-badge{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding: 10px 14px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.26);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 18px 45px rgba(0,0,0,.18);
+  padding:10px 14px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.26);
+  backdrop-filter:blur(10px);
+  box-shadow:0 18px 45px rgba(0,0,0,.18);
 }
 
 .brand-logo{
-  width: 120px;   /* smaller */
-  height: auto;
-  opacity: .96;
-  filter: none;   /* badge already gives depth */
+  width:110px; /* smaller */
+  height:auto;
+  opacity:.96;
+  filter:none;
 }
 
-/* Mobile: slightly smaller */
-@media (max-width: 520px){
-  .brand{ top: 16px; left: 16px; }
-  .brand-badge{ padding: 8px 12px; border-radius: 14px; }
-  .brand-logo{ width: 104px; }
+/* Scroll cue centered at bottom */
+.scroll-cue--center{
+  position:absolute;
+  left:50%;
+  bottom:34px;
+  transform:translateX(-50%);
+  z-index:3;
+  margin-top:0;
 }
+
+/* Route section buttons: visible + spaced */
+.route-actions{
+  margin-top:22px;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn-route{
+  background:rgba(15,47,54,0.10);
+  border:1px solid rgba(15,47,54,0.20);
+  color:var(--flow-blue);
+  box-shadow:var(--shadow-soft);
+}
+
+.btn-route:hover{
+  background:var(--flow-blue);
+  color:#fff;
+  border-color:var(--flow-blue);
+}
+
+/* Footer WhatsApp icon */
+.footer-whatsapp{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.wa-ico{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+}
+
+/* Mobile tweaks */
+@media (max-width:520px){
+  .brand{ top:16px; left:16px; }
+  .brand-badge{ padding:8px 12px; border-radius:14px; }
+  .brand-logo{ width:98px; }
+  .scroll-cue--center{ bottom:18px; }
+}
+
+
+
