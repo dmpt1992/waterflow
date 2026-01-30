@@ -824,44 +824,94 @@ display: none;
 }
 
 /* =========================================================
-   MOBILE CTA — 2x2 GRID (RENTALS | WHATSAPP)
+   MOBILE CTA — HARD LAYOUT (2 ROWS x 2 COLS)
+   Row 1: RENTALS | WHATSAPP
+   Row 2: CAVES   | FERRAGUDO
    ========================================================= */
 @media (max-width: 520px){
 
   .cta-group{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    width: 100%;
+    display:grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-areas:
+      "rent wa"
+      "caves ferr";
+    gap:12px !important;
+    width:100% !important;
+    align-items:stretch;
   }
 
-  /* Todos os botões ocupam a célula inteira */
   .cta-group .btn{
-    width: 100%;
-    justify-content: center;
+    width:100% !important;
+    justify-content:center !important;
   }
 
-  /* Linha 1 */
+  /* RENTALS */
   .cta-group .btn-primary{
-    grid-column: 1 / 2; /* RENTALS */
+    grid-area: rent !important;
   }
 
+  /* WHATSAPP */
   .cta-group .btn-outline{
-    grid-column: 2 / 3; /* WHATSAPP */
+    grid-area: wa !important;
   }
 
-  /* Linha 2 */
-  .cta-group .btn-ghost:nth-of-type(1){
-    grid-column: 1 / 2; /* CAVES ROUTE */
+  /* CAVES + FERRAGUDO (são os 2 ghost, na ordem do HTML) */
+  .cta-group a.btn-ghost:nth-child(2){
+    grid-area: caves !important;
+  }
+  .cta-group a.btn-ghost:nth-child(3){
+    grid-area: ferr !important;
   }
 
-  .cta-group .btn-ghost:nth-of-type(2){
-    grid-column: 2 / 3; /* FERRAGUDO ROUTE */
+  /* Pequeno ajuste para caber bem */
+  .cta-group .btn{
+    padding:14px 12px !important;
+    font-size:11px !important;
   }
 
-  /* Melhor toque para mobile */
-  .btn{
-    padding: 14px 12px;
-    font-size: 11px;
+  /* Se algum estilo antigo estiver a “meter-se” */
+  .cta-group{
+    flex-wrap:unset !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE CTA — FIT TO SCREEN (PREVENT OVERFLOW)
+   ========================================================= */
+@media (max-width: 520px){
+
+  .cta-group{
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+    width: 100% !important;
+  }
+
+  /* deixa os items encolherem sem rebentar */
+  .cta-group > a{
+    min-width: 0 !important;
+  }
+
+  /* botão não pode ultrapassar a célula */
+  .cta-group .btn{
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  /* tipografia mais compacta para caber sempre */
+  .cta-group .btn{
+    font-size: 10.5px !important;
+    letter-spacing: 1px !important;
+    padding: 13px 10px !important;
+  }
+
+  /* o icon não pode roubar espaço */
+  .cta-group .cal-ico,
+  .cta-group .wa-ico{
+    flex: 0 0 auto;
+    margin-right: 6px;
   }
 }
