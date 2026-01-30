@@ -82,23 +82,7 @@ body{
   z-index:1;
 }
 
-/* Brand (small logo corner) */
-.brand{
-  position:absolute;
-  top:22px;
-  left:22px;
-  z-index:3;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-}
 
-.brand-logo{
-  width:140px;
-  height:auto;
-  opacity:.95;
-  filter: drop-shadow(0 14px 30px rgba(0,0,0,.22));
-}
 
 /* Content layout: more space, less condensed */
 .content{
@@ -498,23 +482,18 @@ h2{
 
 /* 1) Logo: NOT inside badge, smaller, with space */
 .brand{
-  position:absolute;
-  top:30px;
-  left:30px;
-  z-index:3;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    z-index: 3;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    opacity: 80%;
 }
 
 .brand-badge{ display:none !important; } /* if it exists, hide */
 
-.brand-logo{
-  width:110px;
-  height:auto;
-  opacity:.96;
-  filter: drop-shadow(0 14px 30px rgba(0,0,0,.22));
-}
 
 /* 2) Hero spacing: more air */
 .kicker{ margin-bottom:14px; }
