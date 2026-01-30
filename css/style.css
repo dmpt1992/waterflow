@@ -561,4 +561,9 @@ h2{
 
 
 
+.card-cta{
+  display:flex;
+  justify-content:center;
+  margin-top:14px;
+}
 
