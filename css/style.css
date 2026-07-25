@@ -1,11 +1,5 @@
 /* =========================================================
-   WATERFLOW — FINAL CSS (v2)
-   Fixes:
-   - Small logo corner
-   - Hero less condensed
-   - Buttons stay in one row (desktop)
-   - Center wave icons
-   - Panel note text updated
+   WATERFLOW — FINAL CSS
    ========================================================= */
 
 :root{
@@ -22,24 +16,42 @@
   --border:rgba(15,47,54,.18);
   --shadow:0 18px 45px rgba(15,47,54,.14);
   --shadow-soft:0 12px 30px rgba(15,47,54,.10);
+
+  --whatsapp:#25d366;
+  --whatsapp-hover:#20bd5a;
 }
 
-/* RESET / BASE */
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   background:var(--page-bg);
   color:var(--text);
+  overflow-x:hidden;
 }
 
 .seo-only{
   position:absolute;
-  width:1px;height:1px;
+  width:1px;
+  height:1px;
   overflow:hidden;
   clip:rect(0 0 0 0);
   white-space:nowrap;
 }
+
 
 /* =========================================================
    HERO
@@ -55,15 +67,18 @@ body{
 .slider{
   position:absolute;
   inset:0;
+
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+
   transition:opacity 2.5s ease;
 }
 
 .overlay{
   position:absolute;
   inset:0;
+
   background:linear-gradient(
     rgba(15,47,54,.58),
     rgba(15,47,54,.30)
@@ -73,25 +88,65 @@ body{
 .hero-fade{
   position:absolute;
   inset:auto 0 0 0;
+
   height:190px;
+
   background:linear-gradient(
     to bottom,
     rgba(211,230,233,0),
     var(--page-bg)
   );
+
   z-index:1;
 }
 
 
+/* =========================================================
+   LOGO
+   ========================================================= */
 
-/* Content layout: more space, less condensed */
+.brand{
+  position:absolute;
+  top:60px;
+  left:60px;
+  z-index:3;
+
+  display:inline-flex;
+  align-items:center;
+
+  text-decoration:none;
+  opacity:.8;
+}
+
+.brand:hover{
+  opacity:1;
+}
+
+.brand-logo{
+  width:120px;
+  max-width:120px;
+  height:auto;
+}
+
+.brand-badge{
+  display:none !important;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
 .content{
   position:relative;
   z-index:2;
+
   min-height:100vh;
   max-width:1240px;
+
   margin:0 auto;
-  padding:110px 20px 20px; /* extra top space because logo moved to corner */
+  padding:110px 20px 20px;
+
   display:flex;
   gap:60px;
   align-items:center;
@@ -103,61 +158,80 @@ body{
 }
 
 .kicker{
+  margin-bottom:14px;
+
   font-size:12px;
   font-weight:800;
   letter-spacing:3px;
   text-transform:uppercase;
+
   opacity:.95;
-  margin-bottom:10px;
 }
 
 .hero-title{
+  margin-bottom:16px;
+
   font-size:clamp(38px,5.4vw,72px);
   font-weight:900;
   line-height:1.02;
   letter-spacing:1px;
   text-transform:uppercase;
-  margin-bottom:12px;
+
   text-shadow:0 12px 35px rgba(0,0,0,.22);
 }
 
 .hero-sub{
+  max-width:560px;
+  margin-bottom:6px;
+
   font-size:13px;
   font-weight:700;
   letter-spacing:.9px;
   text-transform:uppercase;
   line-height:1.75;
+
   opacity:.92;
-  max-width:600px;
 }
 
+
 /* =========================================================
-   BUTTONS
+   HERO BUTTONS
    ========================================================= */
 
 .cta-group{
   display:flex;
-  flex-wrap:nowrap;              /* prevents dropping on desktop */
-  gap:12px;
-  margin-top:18px;
+  flex-wrap:nowrap;
   align-items:center;
+
+  gap:14px;
+  margin-top:22px;
 }
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:14px 18px;             /* tighter so 4 buttons fit */
+
+  padding:14px 18px;
+
+  border:1px solid transparent;
   border-radius:10px;
+
   background:#fff;
   color:var(--flow-blue);
+
   text-decoration:none;
+  font-size:12px;
   font-weight:900;
   letter-spacing:1.2px;
   text-transform:uppercase;
-  font-size:12px;
   white-space:nowrap;
-  transition:transform .2s ease, background .2s ease, color .2s ease;
+
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
 }
 
 .btn:hover{
@@ -181,16 +255,37 @@ body{
   color:var(--flow-blue);
 }
 
-.btn-outline{
-  background:transparent;
+
+/* WHATSAPP */
+
+.btn-whatsapp{
+  background:var(--whatsapp);
   color:#fff;
-  border:2px solid rgba(255,255,255,.75);
+  border:2px solid var(--whatsapp);
 }
 
-.btn-outline:hover{
-  background:#fff;
-  color:var(--flow-blue);
+.btn-whatsapp:hover{
+  background:var(--whatsapp-hover);
+  border-color:var(--whatsapp-hover);
+  color:#fff;
 }
+
+
+/* ICONS */
+
+.wa-ico,
+.cal-ico{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  width:16px;
+  height:16px;
+  flex:0 0 auto;
+
+  margin-right:6px;
+}
+
 
 /* =========================================================
    SCROLL INDICATOR
@@ -200,41 +295,67 @@ body{
   display:inline-flex;
   flex-direction:column;
   align-items:center;
+
   gap:10px;
   margin-top:22px;
+
   text-decoration:none;
 }
 
 .scroll-cue__mouse{
-  width:26px;height:40px;
+  position:relative;
+
+  width:26px;
+  height:40px;
+
   border:2px solid rgba(255,255,255,.65);
   border-radius:999px;
-  position:relative;
 }
 
 .scroll-cue__mouse::after{
   content:"";
+
   position:absolute;
-  left:50%;top:9px;
-  width:4px;height:4px;
+  left:50%;
+  top:9px;
+
+  width:4px;
+  height:4px;
+
   border-radius:50%;
   background:#fff;
+
   transform:translateX(-50%);
   animation:scrollDot 1.4s infinite;
 }
 
 .scroll-cue__arrow{
-  width:12px;height:12px;
+  width:12px;
+  height:12px;
+
   border-right:2px solid #fff;
   border-bottom:2px solid #fff;
+
   transform:rotate(45deg);
 }
 
 @keyframes scrollDot{
-  0%{top:8px;opacity:1;}
-  70%{top:18px;opacity:.25;}
-  100%{top:8px;opacity:1;}
+  0%{
+    top:8px;
+    opacity:1;
+  }
+
+  70%{
+    top:18px;
+    opacity:.25;
+  }
+
+  100%{
+    top:8px;
+    opacity:1;
+  }
 }
+
 
 /* =========================================================
    PRICES PANEL
@@ -246,22 +367,25 @@ body{
 }
 
 .panel{
+  padding:20px 18px;
+
   background:rgba(255,255,255,.14);
   border:1px solid rgba(255,255,255,.28);
   border-radius:18px;
-  padding:20px 18px;
+
   backdrop-filter:blur(8px);
   box-shadow:0 18px 45px rgba(0,0,0,.16);
 }
 
-/* Center the wave icons */
 .panel-head{
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  text-align:center;
+
   margin-bottom:14px;
+
+  text-align:center;
 }
 
 .panel-title{
@@ -272,15 +396,23 @@ body{
 }
 
 .til{
-  width:80px;
-  opacity:.85;
   display:block;
+
+  width:80px;
+
   margin-left:auto;
-  margin-right:auto; /* centers the image */
+  margin-right:auto;
+
+  opacity:.85;
 }
 
-.til.top{margin-bottom:18px;}
-.til.bottom{margin-top:14px;}
+.til.top{
+  margin-bottom:18px;
+}
+
+.til.bottom{
+  margin-top:14px;
+}
 
 .price-grid{
   display:grid;
@@ -288,42 +420,49 @@ body{
 }
 
 .price-card{
+  padding:14px;
+
   background:rgba(255,255,255,.16);
   border:1px solid rgba(255,255,255,.20);
   border-radius:14px;
-  padding:14px;
 }
 
 .price-card h3{
+  margin-bottom:8px;
+
   font-size:13px;
   font-weight:900;
-  text-transform:uppercase;
   letter-spacing:1px;
-  margin-bottom:8px;
+  text-transform:uppercase;
 }
 
 .price-card p{
   font-size:13px;
   letter-spacing:.6px;
-  text-transform:uppercase;
   line-height:1.6;
+  text-transform:uppercase;
 }
 
 .panel-note{
   margin-top:12px;
+
   font-size:11px;
   letter-spacing:1px;
-  text-transform:uppercase;
-  text-align:center;
-  opacity:.9;
   line-height:1.55;
+  text-align:center;
+  text-transform:uppercase;
+
+  opacity:.9;
 }
 
+
 /* =========================================================
-   MAIN SECTIONS
+   MAIN
    ========================================================= */
 
-.main{background:transparent;}
+.main{
+  background:transparent;
+}
 
 .container{
   max-width:1100px;
@@ -340,55 +479,75 @@ body{
 }
 
 h2{
+  margin-bottom:10px;
+
   font-size:clamp(26px,3.2vw,42px);
   font-weight:900;
   letter-spacing:1.1px;
   text-transform:uppercase;
-  margin-bottom:10px;
 }
 
 .lead{
+  margin-bottom:26px;
+
   font-size:14px;
   font-weight:700;
   letter-spacing:.8px;
   text-transform:uppercase;
+
   color:var(--text-soft);
-  margin-bottom:26px;
 }
 
-/* GRID / CARDS */
+
+/* =========================================================
+   GRID / CARDS
+   ========================================================= */
+
 .grid{
   display:grid;
   gap:14px;
 }
 
-.steps{grid-template-columns:repeat(3,1fr);}
-.features{grid-template-columns:repeat(4,1fr);}
-.routes{grid-template-columns:repeat(2,1fr);}
+.steps{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.features{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.routes{
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
 
 .card{
+  padding:20px;
+
   background:var(--card-bg);
   border:1px solid var(--border);
   border-radius:18px;
-  padding:18px;
+
   box-shadow:var(--shadow-soft);
 }
 
 .card h3{
+  margin-bottom:8px;
+
   font-size:13px;
   font-weight:900;
-  text-transform:uppercase;
   letter-spacing:1px;
-  margin-bottom:8px;
+  text-transform:uppercase;
 }
 
 .card p{
   font-size:12px;
   font-weight:700;
   letter-spacing:.6px;
+  line-height:1.8;
   text-transform:uppercase;
+
   color:var(--text-soft);
-  line-height:1.7;
 }
 
 .center{
@@ -396,9 +555,41 @@ h2{
   text-align:center;
 }
 
-/* FOOTER */
+
+/* =========================================================
+   ROUTE BUTTONS
+   ========================================================= */
+
+.card-cta{
+  display:flex;
+  justify-content:center;
+
+  margin-top:14px;
+}
+
+.btn-route{
+  background:rgba(15,47,54,.12);
+  border:1px solid rgba(15,47,54,.28);
+
+  color:var(--flow-blue);
+
+  box-shadow:0 12px 30px rgba(15,47,54,.10);
+}
+
+.btn-route:hover{
+  background:var(--flow-blue);
+  border-color:var(--flow-blue);
+  color:#fff;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
 .footer{
   padding:30px 0;
+
   border-top:1px solid var(--border);
   background:rgba(255,255,255,.18);
 }
@@ -406,16 +597,23 @@ h2{
 .footer-inner{
   display:flex;
   justify-content:space-between;
-  gap:18px;
+  align-items:flex-start;
   flex-wrap:wrap;
+
+  gap:18px;
+}
+
+.footer-left{
+  max-width:680px;
 }
 
 .footer-brand{
+  margin-bottom:6px;
+
   font-size:13px;
   font-weight:900;
   letter-spacing:1px;
   text-transform:uppercase;
-  margin-bottom:6px;
 }
 
 .footer-note{
@@ -423,117 +621,34 @@ h2{
   font-weight:700;
   letter-spacing:.8px;
   text-transform:uppercase;
+
   color:var(--text-soft);
 }
 
 .footer-right{
   display:flex;
-  gap:14px;
+  align-items:center;
   flex-wrap:wrap;
+
+  gap:18px;
 }
 
 .footer-link{
+  padding-bottom:2px;
+
+  border-bottom:1px solid rgba(15,47,54,.25);
+
+  color:var(--flow-blue);
+
+  text-decoration:none;
   font-size:12px;
   font-weight:900;
   letter-spacing:1px;
   text-transform:uppercase;
-  color:var(--flow-blue);
-  text-decoration:none;
-  border-bottom:1px solid rgba(15,47,54,.25);
-  padding-bottom:2px;
 }
 
 .footer-link:hover{
   border-bottom-color:rgba(15,47,54,.55);
-}
-
-/* RESPONSIVE */
-@media (max-width:1060px){
-  /* allow wrap when needed */
-  .cta-group{flex-wrap:wrap;}
-}
-
-@media (max-width:980px){
-  .content{
-    flex-direction:column;
-    align-items:flex-start;
-    padding:100px 18px 48px;
-    gap:26px;
-  }
-
-  .right{width:100%;}
-  .steps{grid-template-columns:1fr;}
-  .features{grid-template-columns:repeat(2,1fr);}
-  .routes{grid-template-columns:1fr;}
-}
-
-@media (max-width:520px){
-  .brand{top:16px;left:16px;}
-  .brand-logo{width:120px;}
-
-  .btn{padding:12px 14px;font-size:11px;}
-  .cta-group{gap:10px;}
-  .features{grid-template-columns:1fr;}
-}
-
-/* =========================================================
-   FINAL OVERRIDES — CLEAN (NO DUPLICATES)
-   ========================================================= */
-
-/* 1) Logo: NOT inside badge, smaller, with space */
-.brand{
-    position: absolute;
-    top: 60px;
-    left: 60px;
-    z-index: 3;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    opacity: 80%;
-}
-
-.brand-badge{ display:none !important; } /* if it exists, hide */
-
-
-/* 2) Hero spacing: more air */
-.kicker{ margin-bottom:14px; }
-.hero-title{ margin-bottom:16px; }
-.hero-sub{ margin-top:0; margin-bottom:6px; max-width:560px; }
-.cta-group{ margin-top:22px; gap:14px; }
-
-/* 3) Routes section: better spacing + shorter copy reads nicer */
-.routes{ gap:18px; }
-.card{ padding:20px; }
-.card p{ line-height:1.8; }
-
-/* 4) Buttons in routes: visible + spaced */
-.route-actions{
-  margin-top:26px;
-  display:flex;
-  gap:18px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.btn-route{
-  background:rgba(15,47,54,.12);
-  border:1px solid rgba(15,47,54,.28);
-  color:var(--flow-blue);
-  box-shadow:0 12px 30px rgba(15,47,54,.10);
-}
-
-.btn-route:hover{
-  background:var(--flow-blue);
-  color:#fff;
-  border-color:var(--flow-blue);
-}
-
-/* 5) WhatsApp footer alignment */
-.footer-right{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
 }
 
 .footer-whatsapp{
@@ -541,377 +656,465 @@ h2{
   align-items:center;
 }
 
-.wa-ico{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:16px;
-  height:16px;
-  transform: translateY(0.5px);
-   margin-right: 10px;
+
+/* =========================================================
+   LEGAL FOOTER
+   ========================================================= */
+
+.footer-legal{
+  margin-top:22px;
+  padding-top:16px;
+
+  border-top:1px solid var(--border);
+
+  text-align:center;
 }
 
-.cal-ico{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:16px;
-  height:16px;
-  transform: translateY(0.5px);
-   margin-right: 10px;
-}
-
-/* Responsive */
-@media (max-width:520px){
-  .brand{ top:18px; left:18px; }
-  .brand-logo{ width:96px; }
-  .route-actions{ gap:14px; }
-  .footer-right{ gap:14px; }
-}
-
-
-
-.card-cta{
+.footer-legal-links{
   display:flex;
   justify-content:center;
-  margin-top:14px;
+  align-items:center;
+  flex-wrap:wrap;
+
+  gap:6px 18px;
 }
 
+.footer-legal-links a{
+  color:var(--flow-blue);
 
-.brand-logo {
-   max-width:120px;
+  text-decoration:none;
+  font-size:11px;
+
+  opacity:.65;
+
+  transition:opacity .2s ease;
+}
+
+.footer-legal-links a:hover{
+  opacity:1;
+}
+
+.footer-copyright{
+  margin-top:8px;
+
+  font-size:10px;
+  color:var(--text-soft);
+
+  opacity:.7;
 }
 
 
 /* =========================================================
-   MOBILE ONLY — FIX PACK (NO DESKTOP CHANGES)
+   TABLET
    ========================================================= */
 
-@media (max-width: 760px){
+@media (max-width:1060px){
 
-  /* (Opcional) esconder logo em mobile */
-  .brand{ display:none !important; }
-
-  /* Hero: menos “altura vazia” e mais legível */
-  .hero{ min-height:auto; }
-  .content{
-    min-height:auto;
-    padding: 78px 18px 20px !important;
-    gap: 18px !important;
-    flex-direction: column;
-    align-items: stretch !important;
+  .cta-group{
+    flex-wrap:wrap;
   }
 
-  .left{ max-width:100% !important; }
+}
+
+
+@media (max-width:980px){
+
+  .content{
+    flex-direction:column;
+    align-items:flex-start;
+
+    padding:100px 18px 48px;
+
+    gap:26px;
+  }
+
+  .right{
+    width:100%;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .routes{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width:760px){
+
+  /* Hide logo */
+  .brand{
+    display:none !important;
+  }
+
+
+  /* HERO */
+
+  .hero{
+    min-height:auto;
+    padding-bottom:74px;
+  }
+
+  .content{
+    min-height:auto;
+
+    padding:78px 18px 20px !important;
+
+    gap:18px !important;
+
+    flex-direction:column;
+    align-items:stretch !important;
+  }
+
+  .left{
+    max-width:100% !important;
+  }
 
   .kicker{
-    font-size: 11px;
-    letter-spacing: 2.4px;
-    margin-bottom: 35px !important;
+    margin-bottom:35px !important;
+
+    font-size:11px;
+    letter-spacing:2.4px;
   }
 
   .hero-title{
-    font-size: 44px !important;
-    line-height: 1.00 !important;
-    margin-bottom: 14px !important;
+    margin-bottom:14px !important;
+
+    font-size:44px !important;
+    line-height:1 !important;
   }
 
   .hero-sub{
-display: none;
+    display:none;
   }
 
-  /* CTA: 2x2 grid (fica muito mais clean) */
-  .cta-group{
-    display:grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px !important;
-    margin-top: 18px !important;
-    align-items: stretch !important;
-  }
 
-  .cta-group .btn{
-    width: 100%;
-    padding: 13px 12px !important;
-    font-size: 11px !important;
-    border-radius: 12px;
-  }
-
-  /* Botão principal ocupa a linha inteira */
-  .cta-group .btn-primary{
-    grid-column: 1 / -1;
-    padding: 14px 14px !important;
-  }
-
-  /* Painel de preços: mais compacto e com margem */
-  .right{
-    width: 100% !important;
-  }
-
-  .panel{
-    border-radius: 18px;
-    padding: 16px 14px !important;
-  }
-
-  .til{ width: 64px !important; }
-  .til.top{ margin-bottom: 12px !important; }
-  .til.bottom{ margin-top: 10px !important; }
-
-  .price-card{
-    padding: 12px !important;
-    border-radius: 14px;
-  }
-
-  .price-card h3{
-    font-size: 12px !important;
-    margin-bottom: 6px !important;
-  }
-
-  .price-card p{
-    font-size: 12px !important;
-    line-height: 1.55 !important;
-  }
-
-  .panel-note{
-    font-size: 10px !important;
-    line-height: 1.55 !important;
-    margin-top: 10px !important;
-  }
-
-  /* Scroll indicator: mais para baixo e mais discreto */
-  .scroll-cue--center{
-    bottom: 14px !important;
-    opacity: .85;
-    transform: translateX(-50%) scale(.92);
-  }
-
-  /* Evitar que o fade “coma” o painel */
-  .hero-fade{
-    height: 120px !important;
-  }
-}
-
-/* Extra tight phones */
-@media (max-width: 420px){
-  .content{ padding-top: 70px !important; }
-  .hero-title{ font-size: 40px !important; }
-  .cta-group{ gap: 10px !important; }
-  .cta-group .btn{ padding: 12px 10px !important; }
-}
-
-
-
-
-/* =========================================================
-   MOBILE — RENTALS + WHATSAPP FULL WIDTH
-   (NO HTML / NO DESKTOP CHANGES)
-   ========================================================= */
-@media (max-width: 760px){
-
-  /* CTA grid layout */
-  .cta-group{
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px !important;
-  }
-
-  /* RENTALS — already full width */
-  .cta-group .btn-primary{
-    grid-column: 1 / -1;
-  }
-
-  /* CAVES + FERRAGUDO — half width */
-  .cta-group .btn-ghost{
-    grid-column: auto;
-  }
-
-  /* WHATSAPP — FULL WIDTH + DIFFERENT STYLE */
-  .cta-group .btn-outline{
-    grid-column: 1 / -1;          /* FULL WIDTH */
-    margin-top: 6px;
-
-    background: linear-gradient(
-      135deg,
-      rgba(255,255,255,.22),
-      rgba(255,255,255,.10)
-    ) !important;
-
-    border: 2px solid rgba(255,255,255,.9) !important;
-    color: #ffffff !important;
-
-    font-weight: 900 !important;
-    letter-spacing: 1.4px !important;
-    padding: 16px 14px !important;
-    border-radius: 16px !important;
-
-    box-shadow:
-      0 20px 40px rgba(0,0,0,.28),
-      inset 0 0 0 1px rgba(255,255,255,.15);
-  }
-
-  /* Kill hover transforms on mobile */
-  .cta-group .btn-outline:hover{
-    transform: none !important;
-    background: rgba(255,255,255,.22) !important;
-  }
-
-  /* Give space before prices panel */
-  .right{
-    margin-top: 20px !important;
-  }
-}
-
-/* Extra small phones */
-@media (max-width: 420px){
-  .cta-group{
-    gap: 10px !important;
-  }
-
-  .cta-group .btn-outline{
-    padding: 15px 12px !important;
-  }
-}
-/* =========================================================
-   MOBILE — SCROLL INDICATOR CENTERED
-   ========================================================= */
-@media (max-width: 760px){
-
-  .scroll-cue--center{
-    position: absolute !important;
-    left: 50% !important;
-    bottom: 16px !important;      /* mais espaço do conteúdo */
-    transform: translateX(-50%) !important;
-    z-index: 4;
-    opacity: .85;
-  }
-
-  /* um bocadinho mais pequeno em mobile */
-  .scroll-cue__mouse{
-    width: 22px;
-    height: 34px;
-  }
-
-  .scroll-cue__arrow{
-    width: 10px;
-    height: 10px;
-  }
-}
-
-
-/* =========================================================
-   MOBILE — FIX SCROLL OVERLAP WITH PRICES PANEL
-   ========================================================= */
-@media (max-width: 760px){
-
-  /* cria zona livre no fundo do hero para o scroll-cue */
-  .hero{
-    padding-bottom: 74px; /* espaço reservado para o indicador */
-  }
-
-  /* baixa o indicador para a “zona livre” */
-  .scroll-cue--center{
-    position:absolute !important;
-    left:50% !important;
-    bottom: 22px !important;
-    transform: translateX(-50%) !important;
-    z-index: 3 !important;
-  }
-
-  /* garante que o painel fica acima do indicador */
-  .right{
-    position: relative;
-    z-index: 4;
-  }
-}
-
-/* =========================================================
-   MOBILE CTA — HARD LAYOUT (2 ROWS x 2 COLS)
-   Row 1: RENTALS | WHATSAPP
-   Row 2: CAVES   | FERRAGUDO
-   ========================================================= */
-@media (max-width: 520px){
+  /* CTA
+     Tablet/mobile intermediate:
+     Book full width
+     Caves + Ferragudo side by side
+     WhatsApp full width
+  */
 
   .cta-group{
     display:grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-areas:
-      "rent wa"
-      "caves ferr";
+
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+
     gap:12px !important;
+    margin-top:18px !important;
+
     width:100% !important;
-    align-items:stretch;
+  }
+
+  .cta-group > a{
+    min-width:0 !important;
   }
 
   .cta-group .btn{
-    width:100% !important;
-    justify-content:center !important;
-  }
+    width:100%;
 
-  /* RENTALS */
-  .cta-group .btn-primary{
-    grid-area: rent !important;
-  }
+    padding:13px 12px !important;
 
-  /* WHATSAPP */
-  .cta-group .btn-outline{
-    grid-area: wa !important;
-  }
+    border-radius:12px;
 
-  /* CAVES + FERRAGUDO (são os 2 ghost, na ordem do HTML) */
-  .cta-group a.btn-ghost:nth-child(2){
-    grid-area: caves !important;
-  }
-  .cta-group a.btn-ghost:nth-child(3){
-    grid-area: ferr !important;
-  }
-
-  /* Pequeno ajuste para caber bem */
-  .cta-group .btn{
-    padding:14px 12px !important;
     font-size:11px !important;
   }
 
-  /* Se algum estilo antigo estiver a “meter-se” */
-  .cta-group{
-    flex-wrap:unset !important;
+  .cta-group .btn-primary{
+    grid-column:1 / -1;
   }
+
+  .cta-group .btn-whatsapp{
+    grid-column:1 / -1;
+
+    margin-top:6px;
+
+    background:var(--whatsapp) !important;
+    border:2px solid var(--whatsapp) !important;
+    color:#fff !important;
+
+    font-weight:900 !important;
+    letter-spacing:1.4px !important;
+
+    padding:16px 14px !important;
+    border-radius:16px !important;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.28);
+  }
+
+  .cta-group .btn-whatsapp:hover{
+    transform:none !important;
+
+    background:var(--whatsapp-hover) !important;
+    border-color:var(--whatsapp-hover) !important;
+  }
+
+
+  /* PRICES */
+
+  .right{
+    position:relative;
+
+    width:100% !important;
+    margin-top:20px !important;
+
+    z-index:4;
+  }
+
+  .panel{
+    padding:16px 14px !important;
+    border-radius:18px;
+  }
+
+  .til{
+    width:64px !important;
+  }
+
+  .til.top{
+    margin-bottom:12px !important;
+  }
+
+  .til.bottom{
+    margin-top:10px !important;
+  }
+
+  .price-card{
+    padding:12px !important;
+    border-radius:14px;
+  }
+
+  .price-card h3{
+    margin-bottom:6px !important;
+    font-size:12px !important;
+  }
+
+  .price-card p{
+    font-size:12px !important;
+    line-height:1.55 !important;
+  }
+
+  .panel-note{
+    margin-top:10px !important;
+
+    font-size:10px !important;
+    line-height:1.55 !important;
+  }
+
+
+  /* SCROLL CUE */
+
+  .scroll-cue--center{
+    position:absolute !important;
+
+    left:50% !important;
+    bottom:22px !important;
+
+    margin:0 !important;
+
+    transform:translateX(-50%) !important;
+
+    z-index:3 !important;
+    opacity:.85;
+  }
+
+  .scroll-cue__mouse{
+    width:22px;
+    height:34px;
+  }
+
+  .scroll-cue__arrow{
+    width:10px;
+    height:10px;
+  }
+
+
+  /* HERO FADE */
+
+  .hero-fade{
+    height:120px !important;
+  }
+
 }
 
 
 /* =========================================================
-   MOBILE CTA — FIT TO SCREEN (PREVENT OVERFLOW)
+   MOBILE — SMALL
+   Layout:
+   RENTALS | WHATSAPP
+   CAVES   | FERRAGUDO
    ========================================================= */
-@media (max-width: 520px){
+
+@media (max-width:520px){
+
+  .content{
+    padding-top:70px !important;
+  }
+
+  .hero-title{
+    font-size:40px !important;
+  }
+
 
   .cta-group{
-    grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
-    width: 100% !important;
+    display:grid !important;
+
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+
+    grid-template-areas:
+      "rent wa"
+      "caves ferr";
+
+    gap:10px !important;
+
+    width:100% !important;
+
+    align-items:stretch;
   }
 
-  /* deixa os items encolherem sem rebentar */
   .cta-group > a{
-    min-width: 0 !important;
+    min-width:0 !important;
   }
 
-  /* botão não pode ultrapassar a célula */
   .cta-group .btn{
-    max-width: 100% !important;
-    min-width: 0 !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+
+    justify-content:center !important;
+
+    padding:13px 8px !important;
+
+    font-size:10.5px !important;
+    letter-spacing:.8px !important;
+
+    white-space:nowrap !important;
+
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+
+    border-radius:12px !important;
   }
 
-  /* tipografia mais compacta para caber sempre */
-  .cta-group .btn{
-    font-size: 10.5px !important;
-    letter-spacing: 1px !important;
-    padding: 13px 10px !important;
+
+  /* BOOK */
+
+  .cta-group .btn-primary{
+    grid-area:rent !important;
+    grid-column:auto !important;
   }
 
-  /* o icon não pode roubar espaço */
+
+  /* WHATSAPP */
+
+  .cta-group .btn-whatsapp{
+    grid-area:wa !important;
+    grid-column:auto !important;
+
+    margin-top:0 !important;
+
+    padding:13px 8px !important;
+
+    background:var(--whatsapp) !important;
+    border-color:var(--whatsapp) !important;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.22);
+  }
+
+
+  /* CAVES */
+
+  .cta-group a.btn-ghost:nth-child(2){
+    grid-area:caves !important;
+  }
+
+
+  /* FERRAGUDO */
+
+  .cta-group a.btn-ghost:nth-child(3){
+    grid-area:ferr !important;
+  }
+
+
+  /* ICONS */
+
   .cta-group .cal-ico,
   .cta-group .wa-ico{
-    flex: 0 0 auto;
-    margin-right: 6px;
+    flex:0 0 auto;
+    margin-right:5px;
   }
+
+
+  /* MAIN */
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+
+  /* FOOTER */
+
+  .footer-right{
+    gap:14px;
+  }
+
+  .footer-legal{
+    margin-top:18px;
+    padding-top:14px;
+  }
+
+  .footer-legal-links{
+    gap:5px 10px;
+  }
+
+  .footer-legal-links a{
+    font-size:9px;
+  }
+
+  .footer-copyright{
+    font-size:9px;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+   ========================================================= */
+
+@media (max-width:390px){
+
+  .hero-title{
+    font-size:37px !important;
+  }
+
+  .cta-group{
+    gap:8px !important;
+  }
+
+  .cta-group .btn{
+    padding:12px 6px !important;
+
+    font-size:9.5px !important;
+    letter-spacing:.5px !important;
+  }
+
+  .cta-group .cal-ico,
+  .cta-group .wa-ico{
+    width:14px;
+    height:14px;
+    margin-right:3px;
+  }
+
 }
